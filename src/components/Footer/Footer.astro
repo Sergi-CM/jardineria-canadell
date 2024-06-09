@@ -1,10 +1,11 @@
 ---
 import "./Footer.scss";
 import { SocialMediaLink } from "@components/index";
-import data from "../../data/data";
 import socialMediaLinks from "./socialMediaLinks";
+import { sanity } from "src/sanityClient";
 
-const year = new Date().getFullYear();
+const data = await sanity.fetch('*[_type == "contact"]');
+const contactInfo = data[0];
 ---
 
 <footer class="footer">
@@ -12,8 +13,8 @@ const year = new Date().getFullYear();
     <div class="footer__left-container">
       <span class="footer__logo">Jardineria Canadell</span>
       <div class="footer__contact">
-        <a href=`tel:${data.phoneNumber}`>{data.phoneNumber}</a>
-        <a href=`mailto:${data.email}`>{data.email}</a>
+        <a href=`tel:${data.phoneNumber}`>{contactInfo.phoneNumber}</a>
+        <a href=`mailto:${data.email}`>{contactInfo.email}</a>
       </div>
       <div>
         <ul class="footer__social">

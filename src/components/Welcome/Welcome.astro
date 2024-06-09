@@ -1,15 +1,27 @@
 ---
+import { sanity } from "src/sanityClient"
 import "./Welcome.scss"
+import { PortableText } from "astro-portabletext"
+
+const query =  `*[_type == "welcome"] {
+      title,
+      greenWord,
+      firstParagraph,
+      secondParagraph,
+      lastSentence
+    }`
+const data = await sanity.fetch(query);
+const welcomeTexts = data[0];
 ---
 
 <section id="inici" class="welcome">
   <div class="welcome__content-container">
     <img src="planta.jpg" height="470" width="auto" alt="planta" />
     <div class="welcome__text-wrapper">
-      <h3 class="welcome__title">El vostre jardiner de <span>confiança</span></h3>
-      <p>Estem compromesos a transformar els teu espai verds en un autèntic oasis de bellesa i serenor. Oferim serveis integrals de jardineria que inclouen el disseny, la creació i el manteniment de jardins i terrenys.</p>
-      <p>Treballem amb passió i dedicació per assegurar-nos que cada projecte reflecteix la visió i les necessitats dels nostres clients. Utilitzem tècniques sostenibles i materials d'alta qualitat per garantir que el teu jardí no només sigui bonic, sinó també respectuós amb el medi ambient.</p>
-      <p>Contacta amb nosaltres i comença a somiar amb el teu jardí ideal!</p>
+      <h3 class="welcome__title">{welcomeTexts.title}<span> {welcomeTexts.greenWord}</span></h3>
+      <PortableText value={welcomeTexts.firstParagraph} />
+      <PortableText value={welcomeTexts.secondParagraph} />
+      <p>{welcomeTexts.lastSentence}</p>
       <div class="welcome__buttons-wrapper">
         <a class="welcome__button">Contacta</a>
         <a class="welcome__button welcome__button--secondary">Veure treballs</a>

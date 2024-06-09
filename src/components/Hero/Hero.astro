@@ -1,10 +1,14 @@
 ---
 import "./Hero.scss"
+import { sanity } from "src/sanityClient";
+
+const data = await sanity.fetch('*[_type == "slogan"]');
+const sloganTexts = data[0];
 ---
 <section class="hero">
   <div class="hero__content-container">
-    <span>Plantant somnis,</span>
-    <span>Recollint <span class="hero__accent">somriures</span></span>
+    <span>{sloganTexts.firstPart}</span>
+    <span>{sloganTexts.secondPart}<span class="hero__accent"> {sloganTexts.greenWord}</span></span>
   </div>  
 </section>
 
