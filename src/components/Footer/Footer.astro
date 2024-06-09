@@ -1,0 +1,37 @@
+---
+import "./Footer.scss";
+import { SocialMediaLink } from "@components/index";
+import data from "../../data/data";
+import socialMediaLinks from "./socialMediaLinks";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <section class="footer__content-container">
+    <div class="footer__left-container">
+      <span class="footer__logo">Jardineria Canadell</span>
+      <div class="footer__contact">
+        <a href=`tel:${data.phoneNumber}`>{data.phoneNumber}</a>
+        <a href=`mailto:${data.email}`>{data.email}</a>
+      </div>
+      <div>
+        <ul class="footer__social">
+          {
+            socialMediaLinks.map((link) => (
+              <li>
+                <SocialMediaLink
+                  href={link.url}
+                  icon={link.icon}
+                  alt={link.alt}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="footer__right-container">
+    </div>
+  </section>
+</footer>

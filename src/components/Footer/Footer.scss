@@ -1,0 +1,53 @@
+@import "@globalStyles/variables.scss";
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 70px;
+  font-size: 1rem;
+
+  background-color: $background-dark;
+  color: $text-light;
+
+  &__content-container {
+    width: 1200px;
+    display: flex;
+  }
+
+  &__left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+  }
+
+  &__logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__right-container {
+    display: flex;
+    flex-direction: column;
+    gap:7px
+  }
+
+  &__services-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
