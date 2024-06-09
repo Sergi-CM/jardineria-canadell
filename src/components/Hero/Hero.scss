@@ -1,0 +1,31 @@
+@import "@globalStyles/variables.scss";
+
+.hero {
+  background-image: url("hero.jpg");
+  background-position: center -550px;
+
+  width: 100%;
+  height: 400px; 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content-container {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  &__accent {
+    color: $accent-color;
+  }
+}
+
+.space {
+  height: 900px;
+}
