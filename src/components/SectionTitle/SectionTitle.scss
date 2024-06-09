@@ -1,0 +1,23 @@
+@import "@globalStyles/variables.scss";
+
+.section-title {
+  display: inline-block;
+  margin-bottom: 40px;
+
+  &::after {
+    display: block;
+    content: "";
+    background-color: $accent-color;
+    width: calc(100% + 170px);
+    height: 3px;
+  }
+  
+  &__text {
+    font-size: 1.8rem;
+  
+    @media (max-width: 650px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
