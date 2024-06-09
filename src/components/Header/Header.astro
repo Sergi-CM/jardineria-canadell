@@ -1,0 +1,19 @@
+---
+import "./Header.scss";
+import links from "src/data/links";
+---
+
+<header class="header">
+  <section class="header__content-container">
+    <span class="header__logo">Jardineria Canadell</span>
+    <nav class="header__navbar">
+      {
+        links.map((link) => (
+          <a class={link.button ? "button" : "link"} href={link.href}>
+            {link.text}
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+</header>
