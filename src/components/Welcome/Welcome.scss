@@ -1,0 +1,58 @@
+@import "@globalStyles/variables.scss";
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 90px;
+
+  &__content-container {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text-wrapper {
+    width: 53%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    line-height: 1.8;
+  }
+
+  &__title {
+    font-size: 1.7rem;
+
+    span {
+      color: $accent-color;
+    }
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__button {
+    color: #eee;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: $accent-color;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border-radius: 5px;
+
+    &:hover {
+      color: #fff;
+      background-color: #82b958;
+    }
+
+    &--secondary {
+      color: $accent-color;
+      border: 1px solid $accent-color;
+      background-color: transparent;
+    }
+  }
+}
