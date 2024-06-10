@@ -1,0 +1,20 @@
+---
+import "./ServiceCard.scss";
+import { PortableText } from "astro-portabletext"
+
+interface Props {
+  image: string;
+  title: string;
+  description: Array<any>;
+}
+
+const { image, title, description } = Astro.props;
+---
+
+<article class="service-card">
+  <img class="service-card__image" src={image} height="300" width="auto" alt={title} />
+  <div class="service-card__text-wrapper">
+    <span class="service-card__title">{title}</span>
+    <PortableText value={description} />
+  </div>
+</article>
