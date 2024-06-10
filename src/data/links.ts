@@ -1,4 +1,4 @@
-const links: linkStructure[] = [
+const links: LinkStructure[] = [
   {
     text: "Inici",
     href: "#inici",
@@ -6,7 +6,7 @@ const links: linkStructure[] = [
   },
   {
     text: "Serveis",
-    href: "/serveis",
+    href: "#serveis",
     button: false,
   },
   {

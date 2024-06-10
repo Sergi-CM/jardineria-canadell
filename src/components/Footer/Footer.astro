@@ -1,7 +1,7 @@
 ---
 import "./Footer.scss";
 import { SocialMediaLink } from "@components/index";
-import socialMediaLinks from "./socialMediaLinks";
+import socialMediaLinks from "../../data/socialMediaLinks";
 import { sanity } from "src/sanityClient";
 
 const data = await sanity.fetch('*[_type == "contact"]');
