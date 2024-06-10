@@ -1,0 +1,25 @@
+---
+import { SectionTitle, ServiceCard } from ".."
+import "./ServicesSection.scss"
+import { sanity } from "src/sanityClient";
+
+const query = `*[_type == "services"] {
+  "image": image.asset->url,
+  title,
+  description
+}`
+const services = await sanity.fetch(query)
+---
+
+<section id="serveis" class="services">
+  <div class="services__content-container">
+    <SectionTitle title="Serveis" />
+    <div class="services__cards-wrapper">
+      {
+        services.map((service: ServiceStructure) => (
+          <ServiceCard image={service.image} title={service.title} description={service.description} />
+        ))
+      }
+    </div>
+  </div>
+</section>
