@@ -11,7 +11,7 @@ const links: LinkStructure[] = [
   },
   {
     text: "Galeria",
-    href: "/galeria",
+    href: "#galeria",
     button: false,
   },
   {

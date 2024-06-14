@@ -1,0 +1,74 @@
+---
+import { SectionTitle } from ".."
+import "./GallerySection.scss"
+import { sanity } from "src/sanityClient";
+
+const query = `*[_type == "gallery"] {
+  "image": image.asset->url,
+}`
+const picturesUrls = await sanity.fetch(query) as PictureStructure[]
+---
+
+<section id="galeria" class="gallery">
+  <div class="gallery__content-container">
+    <SectionTitle title="Galeria" />
+    <div class="gallery__cards-wrapper">
+      {
+        picturesUrls.map((pictureUrl) => (
+          <div class="gallery__card-frame">
+            <img 
+              src={pictureUrl.image} 
+              class="gallery__card"
+              alt="treballs realitzats"
+            />
+            <img 
+              src="icons/magnifier.svg" 
+              class="gallery__magnifier-icon" 
+              width="70" 
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" >
+  <div class="lightbox__overlay"></div>
+  <img id="lightboxImage" class="lightbox__image" alt="Large view" />
+  <button class="lightbox__close-btn">✖</button>
+</div>
+
+<script>
+
+  const toggleLightbox = (imageSrc?: string) => {
+    const lightbox = document.getElementById('lightbox') as HTMLElement;
+    const lightboxImage = document.getElementById('lightboxImage') as HTMLImageElement;
+    const body = document.body as HTMLElement;
+    
+    if (imageSrc) {
+      lightboxImage.src = imageSrc;
+      lightbox.style.display = 'flex';
+      body.classList.add('no-scroll');
+    } else {
+      lightbox.style.display = 'none';
+      lightboxImage.src = '';
+      body.classList.remove('no-scroll');
+    }
+  };
+  
+  const images = document.querySelectorAll('.gallery__card') as NodeListOf<HTMLImageElement>;
+  const closeButton = document.querySelector('.lightbox__close-btn') as HTMLButtonElement;
+
+  images.forEach((image) => {
+    image.addEventListener('click', () => {
+      toggleLightbox(image.src)
+    });
+  });
+
+  closeButton.addEventListener('click', () => {
+    toggleLightbox();
+  });
+
+</script>

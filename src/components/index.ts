@@ -6,3 +6,4 @@ export { default as SectionTitle } from "./SectionTitle/SectionTitle.astro";
 export { default as Welcome } from "./Welcome/Welcome.astro";
 export { default as ServicesSection } from "./ServicesSection/ServicesSection.astro";
 export { default as ServiceCard } from "./ServiceCard/ServiceCard.astro";
+export { default as GallerySection } from "./GallerySection/GallerySection.astro";

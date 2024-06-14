@@ -1,0 +1,103 @@
+@import '@globalStyles/variables.scss';
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  padding: 140px 0;
+
+  &__content-container {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+  }
+
+  &__cards-wrapper {
+    width: 100%;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+
+  &__card-frame {
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .gallery__card {
+      filter: brightness(50%);
+    }
+
+    &:hover .gallery__magnifier-icon {
+      opacity: 1;
+    }
+  }
+
+  &__card {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: all 0.1s ease-in-out;
+  }
+
+  &__magnifier-icon {
+    position: absolute;
+    opacity: 0;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.1s ease-in-out;
+  }
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &__image {
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 1001;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  &__close-btn:hover {
+    color: $accent-color;
+  }
+}
